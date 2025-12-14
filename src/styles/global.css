@@ -74,16 +74,14 @@ nav a:hover {
 }
 
 .intro {
+  margin-bottom: 2rem; /* space before Writing */
+}
+
+.intro-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 2rem;
-}
-
-.intro-text {
-  max-width: none;
-  width: 100%;
-  flex: 1 1 0;
+  gap: 1rem;
 }
 
 .portrait {
@@ -94,15 +92,8 @@ nav a:hover {
 }
 
 @media (max-width: 700px) {
-  .intro-text {
-    max-width: none;     /* remove the 42rem cap */
-    width: 100%;         /* force full width */
-    flex-basis: 100%;    /* take the whole row in a wrapping flex layout */
-  }
-
   .portrait {
     width: 72px;
-    margin-left: auto;   /* keep it right-aligned */
   }
 }
 
