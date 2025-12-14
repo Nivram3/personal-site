@@ -82,6 +82,7 @@ nav a:hover {
 
 .intro-text {
   max-width: 42rem;
+  flex: 1 1 20rem;
 }
 
 .portrait {
@@ -89,4 +90,14 @@ nav a:hover {
   height: auto;
   border-radius: 4px;
   flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .portrait {
+    width: 72px; /* smaller, but still visible */
+  }
+
+  .intro-text {
+    max-width: none;
+  }
 }
