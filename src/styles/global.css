@@ -81,8 +81,9 @@ nav a:hover {
 }
 
 .intro-text {
-  max-width: 42rem;
-  flex: 1 1 20rem;
+  max-width: none;
+  width: 100%;
+  flex: 1 1 0;
 }
 
 .portrait {
@@ -93,11 +94,15 @@ nav a:hover {
 }
 
 @media (max-width: 700px) {
-  .portrait {
-    width: 72px; /* smaller, but still visible */
+  .intro-text {
+    max-width: none;     /* remove the 42rem cap */
+    width: 100%;         /* force full width */
+    flex-basis: 100%;    /* take the whole row in a wrapping flex layout */
   }
 
-  .intro-text {
-    max-width: none;
+  .portrait {
+    width: 72px;
+    margin-left: auto;   /* keep it right-aligned */
   }
 }
+
