@@ -84,6 +84,19 @@ nav a:hover {
   gap: 1rem;
 }
 
+.intro-top h1 {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #5b5f97,
+    #b3b6e5,
+    transparent
+  ) 1;
+}
+
 .portrait {
   width: 110px;
   height: auto;
