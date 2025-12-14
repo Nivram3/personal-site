@@ -1,0 +1,31 @@
+---
+import Base from "../../layouts/Base.astro";
+import articles from "../../data/articles.json";
+
+const fmt = (iso) => {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+};
+
+// newest first (string ISO dates sort nicely)
+const sorted = [...articles].sort((a, b) => (b.published || "").localeCompare(a.published || ""));
+---
+
+<Base title="Articles · Your Name" description="Writing published elsewhere (indexed here).">
+  <h1>Articles</h1>
+
+    {sorted.map((a) => (
+      <p style="margin-bottom: 16px;">
+        <strong>{a.title}</strong><br />
+        <span class="muted">{a.blurb}</span><br />
+        <span class="muted">
+          Published: {(a.published)} |
+        </span>
+        <a href={a.url} target="_blank" rel="noopener">
+          Read →
+        </a>
+      </p>
+    ))}
+</Base>
+

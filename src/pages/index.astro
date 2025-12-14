@@ -1,0 +1,87 @@
+---
+import Base from "../layouts/Base.astro";
+import articles from "../data/articles.json";
+
+// Sort newest first (ISO strings work well)
+const sorted = [...articles].sort((a, b) =>
+  (b.published || "").localeCompare(a.published || "")
+);
+
+// Date formatter that DOES NOT shift by timezone
+const fmt = (iso) => {
+  if (!iso) return "—";
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
+---
+
+<Base>
+  <h1>Marvin Yan</h1>
+
+  <p class="muted">
+    Interested in aging biology, therapeutic development, and platform approaches to drug discovery.
+  </p>
+
+  <p>
+    Training in genetics and genomics; personal work spans science communication, community building,
+    and biotech/venture-adjacent efforts. Current focus: longevity talent and education at 
+    <a class="tooltip"  href="https://www.longevityxplorer.com" target="_blank" rel="noopener"> LongX. 
+      <span class="tooltip-text">
+      Lowering the barrier of entry in longevity biotech.
+      </span>
+    </a>
+  </p>
+
+  <p class="muted">
+    A personal index of select writing and media. Most long-form work lives elsewhere.
+  </p>
+
+  <h3>Writing</h3>
+  <ul>
+    {sorted.map((a) => (
+      <li>
+        <strong>{a.title}</strong>
+        <div class="muted">{a.blurb}</div>
+        <div class="muted">
+          {fmt(a.published)}{" "}||
+          <a href={a.url} target="_blank" rel="noopener">Read →</a>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <h3>Podcast</h3>
+  <ul>  
+  <li>
+    Im a Mortal Podcast Co-Host (30 episodes) ||{" "}
+    <a class="tooltip" href="https://imamortal.com" target="_blank" rel="noopener">Listen →
+    <span class="tooltip-text">
+      Cultural, theological, and socioeconomic implications of life-extension.
+    </span>
+    </a>
+  </li>
+  </ul>
+
+  <h3>Video</h3>
+  <ul>
+    <li>
+      MitoCanada - Mitochondrial Disease Diagnosis and OXPHOS (3 videos) ||{" "}
+      <a href="https://mitocanada.org/animations/" target="_blank" rel="noopener">Watch →</a>
+    </li>
+    <li>
+      Educhondria - Biological Topics of Interest (6 videos) ||{" "}
+      <a href="https://www.youtube.com/channel/UCCbHfqRTdRXjE2CAJc2HWkQ" target="_blank" rel="noopener">Watch →</a>
+    </li>
+  </ul>
+
+  <p>
+    <a class="button" href="https://www.linkedin.com/in/marviny/" target="_blank" rel="noopener">
+      LinkedIn
+    </a>
+  </p>
+</Base>
+
