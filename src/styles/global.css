@@ -72,3 +72,21 @@ nav a:hover {
   opacity: 1;
   visibility: visible;
 }
+
+.intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.intro-text {
+  max-width: 42rem;
+}
+
+.portrait {
+  width: 110px;
+  height: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
